@@ -1,0 +1,34 @@
+.blue {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.footer-copyright {
+    background-color: rgba(0, 0, 0, 0.3);
+    white-space: normal;
+}
+.py-3 {
+    color: #f2f6e9;
+}
+
+.desc {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.anim {
+    fill: #f2f6e9;
+    text-align: center;
+    position: relative;
+    left: 17%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+@media (max-width: 575.98px) {
+    .anim {
+        fill: #f2f6e9;
+        text-align: center;
+        position: relative;
+        left: 7%;
+    }
+}
