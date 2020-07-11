@@ -16,41 +16,48 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    let tickets = this.props.location.search.substr(this.props.location.search.indexOf('=') + 1)
+    // Get the ticket from the URL
+    let tickets = this.props.location.search.substr(this.props.location.search.indexOf('=') + 1);
+
+    // Describe what is sent 
+    let flight = {
+      ticket: tickets,
+      service: "http://10.0.0.61:3000",
+      cooks: localStorage.getItem('cooks')
+    };
+
+    // If there is a ticket, query the API, otherwise, redirect 
     if (tickets.length > 5) {
       console.log("We found the ticket!")
       console.log(tickets)
       fetch('https://ddpfv93bg7.execute-api.us-east-2.amazonaws.com/default/crew-hello', {
-      mode: 'cors',
-      method: 'POST',
-      headers: {
-        "Content-type": "application/json",
-        "Accept-Charset": "UTF-8;",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Request-Headers": "x-requested-with",
-        "Access-Control-Allow-Headers": "x-requested-with"
-      },
-      body: JSON.stringify({ticket: tickets,
-                            service: "http://10.0.0.63:3000"})
-    }).then(res => res.json())
-    .then(
-      (result) => {
-        console.log("Successful POST")
-        console.log(result)
-        if (!result.includes('Not Valid'))
-        this.setState({name: result})
-      },
-      // Note: it's important to handle errors here
-      // instead of a catch() block so that we don't swallow
-      // exceptions from actual bugs in components.
-      (error) => {
-        console.log(error)
-        console.log("ERROR!")
-      }
-    )
+        mode: 'cors',
+        method: 'POST',
+        headers: {
+          "Content-type": "application/json",
+          "Accept-Charset": "UTF-8;",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Request-Headers": "x-requested-with",
+          "Access-Control-Allow-Headers": "x-requested-with"
+        },
+        body: JSON.stringify(flight)
+      }).then(res => res.json())
+        .then(
+          (result) => {
+            console.log("Successful POST")
+            console.log(result)
+            if (result.code)
+              this.setState({ name: result.name })
+          },
+
+          (error) => {
+            console.log(error)
+            console.log("ERROR!")
+          }
+        )
     }
     else {
-      window.location.replace('https://login.case.edu/cas/login?service=http://10.0.0.63:3000')
+      window.location.replace('https://login.case.edu/cas/login?service=http://10.0.0.61:3000')
     }
   }
 

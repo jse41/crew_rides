@@ -2,3 +2,8 @@
     background-color:#626262;
     margin-top: -16px;
 }
+
+.navImg img {
+    width: auto;
+    height: 30px;
+  }

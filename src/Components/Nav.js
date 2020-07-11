@@ -11,7 +11,7 @@ class Navba extends React.Component {
    render() {
        return (
            <Navbar variant="dark">
-               <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+               <Navbar.Brand href="#home"><div className="navImg"><img src="/CircularOar.png" alt="Logo"></img></div></Navbar.Brand>
                <Nav className="mr-auto">
                    <Nav.Link as={Link}  to="/">Home</Nav.Link>
                    <Nav.Link as={Link}  to="/Rides">Rides</Nav.Link>
