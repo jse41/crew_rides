@@ -22,7 +22,7 @@ class Home extends Component {
     // Describe what is sent 
     let flight = {
       ticket: tickets,
-      service: "http://10.0.0.63:3000",
+      service: "https://master.d3spht38sneeyf.amplifyapp.com ",
       cooks: sessionStorage.getItem('cooks')
     };
 
@@ -50,7 +50,7 @@ class Home extends Component {
             sessionStorage.setItem('cooks', result.cooks)
           }
           if (result.reload) {
-            window.location.replace('https://login.case.edu/cas/login?service=http://10.0.0.63:3000')
+            window.location.replace('https://login.case.edu/cas/login?service=https://master.d3spht38sneeyf.amplifyapp.com ')
           }
           if (result.code)
             this.setState({ name: result.name })
