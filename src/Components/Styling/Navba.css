@@ -4,6 +4,15 @@
 }
 
 .navImg img {
-    width: auto;
-    height: 30px;
-  }
+  width: auto;
+  height: 30px;
+}
+
+.justify-content-end p {
+    display: inline;
+}
+
+.navClick:hover {
+    text-decoration: underline;
+    color: aliceblue;
+}
