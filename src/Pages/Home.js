@@ -22,7 +22,8 @@ class Home extends Component {
     // Describe what is sent 
     let flight = {
       ticket: tickets,
-      service: "https://master.d3spht38sneeyf.amplifyapp.com ",
+      service: "https://master.d3spht38sneeyf.amplifyapp.com",
+      //service: "http://localhost:3000",
       cooks: sessionStorage.getItem('cooks')
     };
 
@@ -50,7 +51,8 @@ class Home extends Component {
             sessionStorage.setItem('cooks', result.cooks)
           }
           if (result.reload) {
-            window.location.replace('https://login.case.edu/cas/login?service=https://master.d3spht38sneeyf.amplifyapp.com ')
+            window.location.replace('https://login.case.edu/cas/login?service=https://master.d3spht38sneeyf.amplifyapp.com')
+            //window.location.replace('http://localhost:3000')
           }
           if (result.code)
             this.setState({ name: result.name })

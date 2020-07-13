@@ -4,7 +4,6 @@ import './App.css';
 import Home from './Pages/Home'
 import About from './Pages/About'
 import Rides from './Pages/Rides'
-import Other from './Pages/Other'
 
 class App extends Component {
   
@@ -16,7 +15,6 @@ class App extends Component {
                 <Route path="/" component={Home} exact />
                 <Route path="/about" component={About} />
                 <Route path="/rides" component={Rides} />
-                <Route path="/other" component={Other} />
                 <Route component={Error} />
             </Switch>
           </BrowserRouter>

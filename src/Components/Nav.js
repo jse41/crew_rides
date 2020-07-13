@@ -27,7 +27,6 @@ class Navba extends React.Component {
                     <Nav.Link as={Link} to="/">Home</Nav.Link>
                     <Nav.Link as={Link} to="/Rides">Rides</Nav.Link>
                     <Nav.Link as={Link} to="/About">About</Nav.Link>
-                    <Nav.Link as={Link} to="/Other">Other</Nav.Link>
                 </Nav>
                 <Navbar.Collapse className="justify-content-end">
                     <Navbar.Text>
