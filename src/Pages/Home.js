@@ -11,7 +11,8 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: null
+      name: null,
+      car: []
     };
   }
 
@@ -52,10 +53,10 @@ class Home extends Component {
           }
           if (result.reload) {
             window.location.replace('https://login.case.edu/cas/login?service=https://master.d3spht38sneeyf.amplifyapp.com')
-            //window.location.replace('http://localhost:3000')
+            //window.location.replace('https://login.case.edu/cas/login?service=http://localhost:3000')
           }
           if (result.code)
-            this.setState({ name: result.name })
+            this.setState({ name: result.name, car: result.car })
         },
 
         (error) => {
@@ -66,28 +67,15 @@ class Home extends Component {
   }
 
   render() {
-    if (this.state.name === null) {
       return (
         <div className="App">
           <Alert />
           <NavBa name={this.state.name}/>
-          <h1>Welcome to the Crew RideSheet!</h1>
-          <CarTable />
+          <h1>{this.state.name ? `Hi ${this.state.name}! Welcome to the Crew RideSheet!` : "Welcome to the Crew RideSheet!"}</h1>
+          <CarTable car={this.state.car}/>
           <Footer />
         </div>
       );
-    }
-    else {
-      return (
-        <div className="App">
-          <Alert />
-          <NavBa name={this.state.name}/>
-          <h1>Hi {this.state.name}! Welcome to the Crew RideSheet!</h1>
-          <CarTable />
-          <Footer />
-        </div>
-      );
-    }
   }
 }
 
