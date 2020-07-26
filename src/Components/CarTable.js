@@ -1,5 +1,5 @@
 import React from 'react';
-import Table from 'react-bootstrap/Table'
+import {Table, Card} from 'react-bootstrap'
 import './Styling/CarTable.css';
 
 const MakeCarTable = props => {
@@ -32,17 +32,21 @@ const MakeCarTable = props => {
  */
 const CarTable = props => {
   return (
-    <Table striped bordered hover className="cartable">
-      <thead>
-        <tr>
-          <th>Driver</th>
-          <th>{props.car ? props.car.driver : "Driver..."}</th>
-          <th>{props.car ? props.car.vehicle : "Vehicle..."}</th>
-          <th>Pickup Time</th>
-        </tr>
-      </thead>
-      <MakeCarTable car={props.car ? props.car.passengers : []} />
-    </Table>
+    <Card className="outCard">
+      {!props.gen ? <Card.Title className="freetext">Your Rides for the week...</Card.Title> : <div/>}
+      {!props.gen ? <Card.Subtitle className="mb-2 text-muted freetext">You are in the same car for the whole week!</Card.Subtitle> : <div/>}
+      <Table striped bordered hover className="cartable">
+        <thead>
+          <tr>
+            <th>Driver</th>
+            <th>{props.car ? props.car.driver : "Driver..."}</th>
+            <th>{props.car ? props.car.vehicle : "Vehicle..."}</th>
+            <th>Pickup Time</th>
+          </tr>
+        </thead>
+        <MakeCarTable car={props.car ? props.car.passengers : []} />
+      </Table>
+    </Card>
   );
 }
 

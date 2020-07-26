@@ -1,8 +1,21 @@
 .table.cartable {
     background-color: whitesmoke;
-    width: 80%;
+    width: 95%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 3%;
-    margin-bottom: 3%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    text-align: center;
+}
+
+.outCard {
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    text-align: left;
+}
+
+.freetext {
+    padding-left: 10%;
 }

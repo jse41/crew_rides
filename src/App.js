@@ -24,8 +24,8 @@ class App extends Component {
         <BrowserRouter>
             <Switch>
                 <Route path="/" exact render={(props) => <Home {...props} info={this.state} updateMe={this.updateMe}/>}/>
-                <Route path="/about" render={(props) => <About {...props} info={this.state}/>}/>
-                <Route path="/rides" render={(props) => <Rides {...props} info={this.state}/>}/>
+                <Route path="/about" render={(props) => <About {...props} info={this.state} updateMe={this.updateMe}/>}/>
+                <Route path="/rides" render={(props) => <Rides {...props} info={this.state} updateMe={this.updateMe}/>}/>
                 <Route component={Error} />
             </Switch>
           </BrowserRouter>
