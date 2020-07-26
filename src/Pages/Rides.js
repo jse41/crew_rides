@@ -11,7 +11,7 @@ class Contact extends React.Component {
       return (
          <div>
             <Alert />
-            <NavBa />
+            <NavBa info={this.props.info}/>
             <h1>Entire Ride Sheet Here...</h1>
             <Footer />
          </div>

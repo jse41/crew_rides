@@ -11,7 +11,7 @@ class About extends React.Component {
       return (
          <div>
             <Alert />
-            <NavBa />
+            <NavBa info={this.props.info}/>
             <h1>Mine as well have an about page...</h1>
             <Footer />
          </div>

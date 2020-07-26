@@ -11,12 +11,18 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: null,
       car: []
     };
   }
 
   componentDidMount() {
+    console.log(this.props.info)
+    if (!this.props.info.login) {
+      this.callServer();
+    }
+  }
+
+  callServer() {
     // Get the ticket from the URL
     let tickets = this.props.location.search.substr(this.props.location.search.indexOf('=') + 1);
 
@@ -24,11 +30,9 @@ class Home extends Component {
     let flight = {
       ticket: tickets,
       service: "https://master.d3spht38sneeyf.amplifyapp.com",
-      //service: "http://localhost:3000",
+      //service: "http://192.168.50.179:3000",
       cooks: sessionStorage.getItem('cooks')
     };
-
-    console.log(`The session storage is: ${sessionStorage.getItem('cooks')}`)
 
     // If there is a ticket, query the API, otherwise, redirect 
     //console.log(tickets)
@@ -53,10 +57,12 @@ class Home extends Component {
           }
           if (result.reload) {
             window.location.replace('https://login.case.edu/cas/login?service=https://master.d3spht38sneeyf.amplifyapp.com')
-            //window.location.replace('https://login.case.edu/cas/login?service=http://localhost:3000')
+            //window.location.replace('https://login.case.edu/cas/login?service=http://192.168.50.179:3000')
           }
           if (result.code)
             this.setState({ name: result.name, car: result.car })
+            this.props.updateMe({ name: result.name, car: result.car, login: true })
+            console.log(`I know that: ${this.props.info.name}`)
         },
 
         (error) => {
@@ -64,15 +70,16 @@ class Home extends Component {
           console.log("ERROR!")
         }
       )
+      
   }
 
   render() {
       return (
         <div className="App">
           <Alert />
-          <NavBa name={this.state.name}/>
-          <h1>{this.state.name ? `Hi ${this.state.name}! Welcome to the Crew RideSheet!` : "Welcome to the Crew RideSheet!"}</h1>
-          <CarTable car={this.state.car}/>
+          <NavBa info={this.props.info}/>
+          <h1>{this.props.info.name ? `Hi ${this.props.info.name}! Welcome to the Crew RideSheet!` : "Welcome to the Crew RideSheet!"}</h1>
+          <CarTable car={this.props.info.car}/>
           <Footer />
         </div>
       );

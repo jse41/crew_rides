@@ -36,8 +36,8 @@ const CarTable = props => {
       <thead>
         <tr>
           <th>Driver</th>
-          <th>{props.car.driver}</th>
-          <th>{props.car.vehicle}</th>
+          <th>{props.car ? props.car.driver : "Driver..."}</th>
+          <th>{props.car ? props.car.vehicle : "Vehicle..."}</th>
           <th>Pickup Time</th>
         </tr>
       </thead>

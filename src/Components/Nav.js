@@ -21,17 +21,18 @@ class Navba extends React.Component {
 
     render() {
         return (
-            <Navbar variant="dark">
+            <Navbar variant="dark" expand="lg">
                 <Navbar.Brand href="#home"><div className="navImg"><img src="/CircularOar.png" alt="Logo"></img></div></Navbar.Brand>
-                <Nav className="mr-auto">
-                    <Nav.Link as={Link} to="/">Home</Nav.Link>
-                    <Nav.Link as={Link} to="/Rides">Rides</Nav.Link>
-                    <Nav.Link as={Link} to="/About">About</Nav.Link>
-                </Nav>
-                <Navbar.Collapse className="justify-content-end">
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+                    <Nav className="mr-auto">
+                        <Nav.Link as={Link} to="/">Home</Nav.Link>
+                        <Nav.Link as={Link} to="/Rides">Rides</Nav.Link>
+                        <Nav.Link as={Link} to="/About">About</Nav.Link>
+                    </Nav>
                     <Navbar.Text>
-                        <p>{this.props.name ? `Signed in as: ` : ""}</p>
-                        <p className="navClick" onClick={this.updateName}>{this.props.name ? `${this.props.name}${this.state.name}` : "Click to Log In"}</p>
+                        <p>{this.props.info.name ? `Signed in as: ` : ""}</p>
+                        <p className="navClick" onClick={this.updateName}>{this.props.info.name ? `${this.props.info.name}${this.state.name}` : "Click to Log In"}</p>
                     </Navbar.Text>
                 </Navbar.Collapse>
 
