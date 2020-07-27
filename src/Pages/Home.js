@@ -28,8 +28,8 @@ class Home extends Component {
     // Describe what is sent 
     let flight = {
       ticket: tickets,
-      //service: "https://master.d3spht38sneeyf.amplifyapp.com",
-      service: "http://192.168.50.179:3000",
+      service: "https://master.d3spht38sneeyf.amplifyapp.com",
+      //service: "http://192.168.50.179:3000",
       cooks: sessionStorage.getItem('cooks'),
       reason: "General"
     };
@@ -56,8 +56,8 @@ class Home extends Component {
             sessionStorage.setItem('cooks', result.cooks)
           }
           if (result.reload) {
-            //window.location.replace('https://login.case.edu/cas/login?service=https://master.d3spht38sneeyf.amplifyapp.com')
-            window.location.replace('https://login.case.edu/cas/login?service=http://192.168.50.179:3000')
+            window.location.replace('https://login.case.edu/cas/login?service=https://master.d3spht38sneeyf.amplifyapp.com')
+            //window.location.replace('https://login.case.edu/cas/login?service=http://192.168.50.179:3000')
           }
           if (result.code)
             this.props.updateMe({ name: result.name, car: result.car, login: true })

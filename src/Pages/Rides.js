@@ -46,8 +46,8 @@ class Rides extends React.Component {
              console.log("Successful POST")
              this.props.updateMe({cars: result.Items})
              if (result.reload) {
-               //window.location.replace('https://login.case.edu/cas/login?service=https://master.d3spht38sneeyf.amplifyapp.com')
-               window.location.replace('https://login.case.edu/cas/login?service=http://192.168.50.179:3000')
+               window.location.replace('https://login.case.edu/cas/login?service=https://master.d3spht38sneeyf.amplifyapp.com')
+               //window.location.replace('https://login.case.edu/cas/login?service=http://192.168.50.179:3000')
              }
            },
    
