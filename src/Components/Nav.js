@@ -22,7 +22,7 @@ class Navba extends React.Component {
     render() {
         return (
             <Navbar variant="dark" expand="lg">
-                <Navbar.Brand href="#home"><div className="navImg"><img src="/CircularOar.png" alt="Logo"></img></div></Navbar.Brand>
+                <Navbar.Brand><Nav.Link as={Link} to="/"><div className="navImg"><img src="/CircularOar.png" alt="Logo"></img></div></Nav.Link></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
                     <Nav className="mr-auto">

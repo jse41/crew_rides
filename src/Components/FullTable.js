@@ -24,7 +24,7 @@ const MakeFullTable = props => {
                 passengers: carPassengers
             }
             return (
-                <Col sm={12} md={12} lg={6} key={index}>
+                <Col sm={12} md={12} lg={4} key={index}>
                     <CarTable car={car} gen={true}/>
                 </Col>
             )
@@ -43,7 +43,7 @@ const MakeFullTable = props => {
  */
 const FullTable = props => {
     return (
-        <Container>
+        <Container fluid>
             <Row>
                 <MakeFullTable cars={props.cars ? props.cars : []} />
             </Row>
