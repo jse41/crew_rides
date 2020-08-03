@@ -1,3 +1,13 @@
+# Crew Rides
+This is the repository for the frontend of Crew Rides. Crew Rides is a website (mobile friendly) that replaces the old shared google ridesheet for the crew team at Case Western Reserve University. It is hosted in the cloud, on AWS currently, and provides individualized experiences for its users. 
+
+## Development
+This project is developed using React as the frondend framework, heavily utilizing Bootstrap for formatting and mobile friendly experiences. This connects to the [Crew Rides Backend](https://github.com/jse41/crew_rides_backend) project to access the individualized information. Login access is done by Case Western Reserve University (CWRU) Single Sign On (SSO) service. 
+
+## Hosting
+Currently this project is hosted on AWS using their Amplify web hosting service for serverless hosting of Single Page applications. This can be hosted locally, but be sure to change the `window.location.replace` commands in (at least) `Pages/home.js` and `Pages/Rides.js` to the local address to avoid being redirected back to the server on initial login attempts. 
+
+# Everything below here is from Create React App...
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
