@@ -24,12 +24,13 @@ class Home extends Component {
   callServer() {
     // Get the ticket from the URL
     let tickets = this.props.location.search.substr(this.props.location.search.indexOf('=') + 1);
+    //let masterService = "http://192.168.50.179:3000"
+    let masterService = "https://master.d3spht38sneeyf.amplifyapp.com"
 
     // Describe what is sent 
     let flight = {
       ticket: tickets,
-      service: "https://master.d3spht38sneeyf.amplifyapp.com",
-      //service: "http://192.168.50.179:3000",
+      service: masterService,
       cooks: sessionStorage.getItem('cooks'),
       reason: "General"
     };
@@ -56,11 +57,11 @@ class Home extends Component {
             sessionStorage.setItem('cooks', result.cooks)
           }
           if (result.reload) {
-            window.location.replace('https://login.case.edu/cas/login?service=https://master.d3spht38sneeyf.amplifyapp.com')
-            //window.location.replace('https://login.case.edu/cas/login?service=http://192.168.50.179:3000')
+            window.location.replace(`https://login.case.edu/cas/login?service=${masterService}`)
           }
           if (result.code)
-            this.props.updateMe({ name: result.name, car: result.car, login: true })
+            this.props.updateMe(result)
+            this.props.updateMe({ login: true, })
         },
 
         (error) => {
@@ -75,7 +76,7 @@ class Home extends Component {
       return (
         <div className="App">
           <Alert />
-          <NavBa info={this.props.info}/>
+          <NavBa info={this.props.info} updateMe={this.props.updateMe} page="Home" location={this.props.location}/>
           <h1>{this.props.info.name ? `Hi ${this.props.info.name}! Welcome to the Crew RideSheet!` : "Welcome to the Crew RideSheet!"}</h1>
           <CarTable car={this.props.info.car}/>
           <Footer />

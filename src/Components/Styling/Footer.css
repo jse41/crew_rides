@@ -14,6 +14,10 @@
     color: rgba(255, 255, 255, 0.45);
 }
 
+.headerText {
+    text-align: center;
+}
+
 .anim {
     fill: #f2f6e9;
     text-align: center;

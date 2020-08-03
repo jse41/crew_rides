@@ -1,0 +1,11 @@
+.packet {
+    margin: 2%;
+    padding: 2%;
+}
+
+input[type=checkbox] {
+    transform: scale(1.5);
+    -ms-transform: scale(1.55);
+    -webkit-transform: scale(1.5);
+    padding: 20px;
+}

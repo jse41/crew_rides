@@ -62,7 +62,7 @@ class Rides extends React.Component {
       return (
          <div>
             <Alert />
-            <NavBa info={this.props.info}/>
+            <NavBa info={this.props.info} updateMe={this.props.updateMe} page="Rides" location={this.props.location} />
             <h1>Entire Ride Sheet Here...</h1>
             <FullTable cars={this.props.info.cars} />
             <Footer />

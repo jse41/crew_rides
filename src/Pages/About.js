@@ -11,7 +11,7 @@ class About extends React.Component {
       return (
          <div>
             <Alert />
-            <NavBa info={this.props.info}/>
+            <NavBa info={this.props.info} updateMe={this.props.updateMe} page="About" location={this.props.location} />
             <h1>Mine as well have an about page...</h1>
             <Footer />
          </div>

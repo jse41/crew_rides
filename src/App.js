@@ -4,6 +4,7 @@ import './App.css';
 import Home from './Pages/Home'
 import About from './Pages/About'
 import Rides from './Pages/Rides'
+import Account from './Pages/Account'
 
 class App extends Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class App extends Component {
                 <Route path="/" exact render={(props) => <Home {...props} info={this.state} updateMe={this.updateMe}/>}/>
                 <Route path="/about" render={(props) => <About {...props} info={this.state} updateMe={this.updateMe}/>}/>
                 <Route path="/rides" render={(props) => <Rides {...props} info={this.state} updateMe={this.updateMe}/>}/>
+                <Route path="/account" render={(props) => <Account {...props} info={this.state} updateMe={this.updateMe}/>}/>
                 <Route component={Error} />
             </Switch>
           </BrowserRouter>
