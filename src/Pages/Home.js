@@ -67,9 +67,16 @@ class Home extends Component {
         (error) => {
           console.log(error)
           console.log("ERROR!")
+          this.sleep(500).then(() => {
+            window.location.replace(`https://login.case.edu/cas/login?service=${masterService}`)
+          })
         }
       )
       
+  }
+
+  sleep = (milliseconds) => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds))
   }
 
   render() {
